@@ -18,8 +18,10 @@ These are the notes from a meeting with the frontend developer that describe wha
     - route: /api/users  [GET]  
 - Show [token required]
     - route: /api/users/:id  [GET]  
-- Create N[token required]
+- Create [token required]
     - route: /api/users  [POST]  
+- Authenticate
+    - route: /api/users/auth  [POST]  
 
 #### Orders
 - Current Order by user (args: user id)[token required]
