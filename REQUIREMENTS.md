@@ -60,8 +60,8 @@ id SERIAL PRIMARY KEY,
 username VARCHAR(50) NOT NULL, 
 firstname VARCHAR(50) NOT NULL,
 lastname VARCHAR(50) NOT NULL,
-pasword TEXT) 
-UNIQUE(username);``
+password TEXT, 
+UNIQUE(username));``
 
 #### Orders
 - id
@@ -90,7 +90,7 @@ orders/products Table:
 |--|----------|-------|------|
 |SERIAL PRIMARY KEY|bigint REFERENCES products(id)|integer|bigint REFERENCES orders(id)|
 
-``CREATE TABLE order_products(
+``CREATE TABLE orders_products(
 id SERIAL PRIMARY KEY, 
 product_id bigint REFERENCES products(id), 
 quantity integer,

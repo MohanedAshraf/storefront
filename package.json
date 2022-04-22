@@ -9,6 +9,8 @@
     "dev": "nodemon src/server.ts",
     "lint": "eslint src/*.ts",
     "lint:f": "eslint src/*.ts --fix",
+    "migration:up":"db-migrate up",
+    "migration:down":"db-migrate -c 4 down",
     "test": "tsc && jasmine"
   },
   "author": "Mohaned Ashraf",
