@@ -1,12 +1,17 @@
 import { User, UserModel } from '../models/user';
 import { Request, Response } from 'express';
-import { Verify, Sign } from '../utils/jwt';
+import { Verify, Sign, isAdmin } from '../utils/jwt';
 
 const User = new UserModel();
 
 export const index = async (req: Request, res: Response) => {
   try {
-    Verify(req);
+    const userId = Verify(req);
+
+    if (!(await isAdmin(userId))) {
+      return res.status(400).send('Error, should be an admin. ');
+    }
+
     const users = await User.index();
     res.send(users);
   } catch (error) {
@@ -42,18 +47,18 @@ export const show = async (req: Request, res: Response) => {
 
 export const create = async (req: Request, res: Response) => {
   try {
-    const { username, firstname, lastname, password } = req.body;
-    if (!username || !firstname || !lastname || !password) {
+    const { username, firstname, lastname, password, role } = req.body;
+    if (!username || !firstname || !lastname || !password || !role) {
       return res
         .status(400)
         .send(
           'Error, missing or malformed parameters. (username , firstname , lastname ,password) are  required'
         );
     }
-    const user: User = { username, firstname, lastname, password };
+    Verify(req);
+    const user: User = { username, firstname, lastname, password, role };
     const createduser = await User.create(user);
-    const token = Sign(Number(createduser.id));
-    res.send(token);
+    res.send(createduser);
   } catch (error) {
     const e = error as Error;
     if (e.message.includes('Failed to add the user')) {
@@ -80,7 +85,7 @@ export const authenticate = async (req: Request, res: Response) => {
       res.status(401);
       res.json('Incorrect user information');
     } else {
-      const token = Sign(Number(user.id));
+      const token = Sign(Number(user.id), user.role);
       res.json(token);
     }
   } catch (error) {

@@ -7,6 +7,7 @@ export type User = {
   firstname: string;
   lastname: string;
   password: string;
+  role: string;
 };
 
 const { PEPPER, SALT_ROUNDS } = process.env;
