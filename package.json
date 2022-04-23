@@ -11,7 +11,7 @@
     "lint:f": "eslint src/*.ts --fix",
     "migration:up": "db-migrate up",
     "migration:down": "db-migrate -c 5 down",
-    "test": "tsc && jasmine",
+    "test": "db-migrate --env test reset && tsc && set ENV=test&& db-migrate --env test up && jasmine && db-migrate --env test reset",
     "seed":"psql -U Mohaned -d storefront -a -f data_migrations/initialization.sql"
   },
   "author": "Mohaned Ashraf",
