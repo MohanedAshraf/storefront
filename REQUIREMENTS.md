@@ -24,8 +24,8 @@ These are the notes from a meeting with the frontend developer that describe wha
     - route: /api/users/auth  [POST]  
 
 #### Orders
-- Current Order by user (args: user id)[token required]
-    - route: /api/users/:id/orders  [GET]
+- Current Order by user [token required]
+    - route: /api/users/orders  [GET]
 
 
 ## Data Shapes

@@ -15,12 +15,12 @@ INSERT INTO products (name , price) VALUES ('Pen' , 1);
 
 
 /* Populate The Orders Table */
-INSERT INTO orders (user_id, status) VALUES (1, 'COMPLETED');
-INSERT INTO orders (user_id, status) VALUES (2, 'PROCCESSED');
-INSERT INTO orders (user_id, status) VALUES (3, 'STAGING');
-INSERT INTO orders (user_id, status) VALUES (4, 'COMPLETED');
-INSERT INTO orders (user_id, status) VALUES (1 ,'COMPLETED');
-INSERT INTO orders (user_id, status) VALUES (2, 'COMPLETED');
+INSERT INTO orders (user_id, status) VALUES (1, 'complete');
+INSERT INTO orders (user_id, status) VALUES (2, 'active');
+INSERT INTO orders (user_id, status) VALUES (3, 'active');
+INSERT INTO orders (user_id, status) VALUES (4, 'active');
+INSERT INTO orders (user_id, status) VALUES (1 ,'complete');
+INSERT INTO orders (user_id, status) VALUES (2, 'complete');
 
 /* Populate The Orders-Products Table */
 INSERT INTO orders_products (product_id, order_id , quantity) VALUES (1,1 , 4);

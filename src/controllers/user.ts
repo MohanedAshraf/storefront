@@ -52,7 +52,7 @@ export const create = async (req: Request, res: Response) => {
       return res
         .status(400)
         .send(
-          'Error, missing or malformed parameters. (username , firstname , lastname ,password) are  required'
+          'Error, missing or malformed parameters. (username , firstname , lastname ,password , role) are  required'
         );
     }
     Verify(req);
