@@ -18,7 +18,7 @@ These are the notes from a meeting with the frontend developer that describe wha
     - route: /api/users  [GET]  
 - Show [token required]
     - route: /api/users/:id  [GET]  
-- Create [token required]
+- Create
     - route: /api/users  [POST]  
 - Authenticate
     - route: /api/users/auth  [POST]  
