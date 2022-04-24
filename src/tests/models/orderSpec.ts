@@ -24,7 +24,7 @@ describe('Create user to test order Model', () => {
 
   const orderModel = new OrderModel();
   const baseOrder: Order = {
-    user_id: 1,
+    user_id: 4,
     status: 'complete',
   };
   let order: Order;
@@ -41,8 +41,8 @@ describe('Create user to test order Model', () => {
     it('Must have a currentUserOrder method', () => {
       expect(orderModel.currentUserOrder).toBeDefined();
     });
-    it('Testing the create method with a product', async () => {
-      const orders = await orderModel.currentUserOrder('1');
+    it('Testing the currentUserOrder method with a product', async () => {
+      const orders = await orderModel.currentUserOrder('4');
 
       expect(Number(orders[0].user_id)).toEqual(baseOrder.user_id);
       expect(orders[0].status).toEqual(baseOrder.status);

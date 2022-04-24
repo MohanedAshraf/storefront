@@ -29,10 +29,10 @@ describe('Testing Model: User', () => {
 
   it('Testing the index model to include the user', async () => {
     const users = await userModel.index();
-    expect(users[0].username).toContain(user.username);
-    expect(users[0].firstname).toContain(user.firstname);
-    expect(users[0].lastname).toContain(user.lastname);
-    expect(users[0].role).toContain(user.role);
+    expect(users[2].username).toContain(user.username);
+    expect(users[2].firstname).toContain(user.firstname);
+    expect(users[2].lastname).toContain(user.lastname);
+    expect(users[2].role).toContain(user.role);
   });
 
   it('Must have a show method', () => {

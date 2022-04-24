@@ -55,10 +55,11 @@ export const create = async (req: Request, res: Response) => {
           'Error, missing or malformed parameters. (username , firstname , lastname ,password , role) are  required'
         );
     }
-    Verify(req);
+
     const user: User = { username, firstname, lastname, password, role };
     const createduser = await User.create(user);
-    res.send(createduser);
+    const token = Sign(Number(createduser.id), createduser.role);
+    res.json(token);
   } catch (error) {
     const e = error as Error;
     if (e.message.includes('Failed to add the user')) {

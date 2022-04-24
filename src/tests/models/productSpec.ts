@@ -25,8 +25,8 @@ describe('Testing Model: Product', () => {
 
   it('Testing the index model to include the product', async () => {
     const products = await productModel.index();
-    expect(products[0].name).toEqual(baseProduct.name);
-    expect(Number(products[0].price)).toEqual(baseProduct.price);
+    expect(products[2].name).toEqual(baseProduct.name);
+    expect(Number(products[2].price)).toEqual(baseProduct.price);
   });
 
   it('Must have a show method', () => {
